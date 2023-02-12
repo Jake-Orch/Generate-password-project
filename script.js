@@ -3,9 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 var allLetters = ["abcdefghijklmnopqrstuvwxyz"];
-var allCaps = ["ABCDEFGHIJKLMNOPRXTUVWXYZ"];
-var allNumbers = ["0123456789"];
-var allSpecial = ["!#$%&&*+-/_:;=<>?@][(){}~"];
 var allLettersCaps = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ"]
 var allLettersNumbers = ["abcdefghijklmnopqrstuvwxyz0123456789"]
 var allLettersSpecial = ["abcdefghijklmnopqrstuvwxyz!#$%&&*+-/_:;=<>?@][(){}~"]
@@ -13,10 +10,6 @@ var allLettersCapsNumbers = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXY
 var allLettersCapsSpecial = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ!#$%&&*+-/_:;=<>?@][(){}~"]
 var allLettersNumbersSpecial = ["abcdefghijklmnopqrstuvwxyz0123456789!#$%&&*+-/_:;=<>?@][(){}~"]
 var allLettersCapsNumbersSpecial = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ0123456789!#$%&&*+-/_:;=<>?@][(){}~"]
-
-/*var onlyCaps = allCaps[Math.floor(Math.random() * lengths.length)];
-var onlyNumbers = allNumbers[Math.floor(Math.random() * lengths.length)];
-var onlySpecial = allSpecial[Math.floor(Math.random() * lengths.length)];*/
 
 function affirmData() {
   console.log("affirmData function is running");
@@ -36,41 +29,43 @@ function generatePassword({ capital, numbers, special, lengths }) {
   console.log("generatePassword is running");
   console.log("Inside generatePassword " + capital + " " + numbers + " " + special + " " + lengths)
   if (capital == true && numbers == true && special == true) {
-    console.log("all true");
-
+    var pass = allLettersCapsNumbersSpecial[Math.floor(Math.random() * lengths.length)];
+    console.log("all true" + pass);
+//unidentified on some specific numbers e.g. 12, 16
+//shows all
   }
   else if (capital == false && numbers == true && special == true) {
-    console.log("all true but capital");
+    var pass = allLettersNumbersSpecial[Math.floor(Math.random() * lengths.length)];
+    console.log("all true but capital" + pass);
 
   }
   else if (capital == true && numbers == false && special == true) {
-    console.log("all true but numbers");
+    var pass = allLettersCapsSpecial[Math.floor(Math.random() * lengths.length)];
+    console.log("all true but numbers" + pass);
 
   }
   else if (capital == true && numbers == true && special == false) {
-    console.log("all true but special");
-
+    var pass = allLettersCapsNumbers[Math.floor(Math.random() * lengths.length)];
+    console.log("all true but special" + pass);
   }
   else if (capital == true && numbers == false && special == false) {
-    console.log("all false but capital");
-
+    var pass = allLettersCaps[Math.floor(Math.random() * lengths.length)];
+    console.log("all false but capital" + pass);
   }
   else if (capital == false && numbers == true && special == false) {
-    console.log("all false but numbers");
-
+    var pass = allLettersNumbers[Math.floor(Math.random() * lengths.length)];
+    console.log("all false but numbers" + pass);
   }
   else if (capital == false && numbers == false && special == true) {
-    console.log("all false but special");
-
+    var pass = allLettersSpecial[Math.floor(Math.random() * lengths.length)];
+    console.log("all false but special" + pass);
   }
   else {
-      var passs = allLetters[Math.floor(Math.random() * lengths.length)];
-    
-    console.log("all false" + passs);
+      var pass = allLetters[Math.floor(Math.random() * lengths.length)];
+    console.log("all false" + pass);
   }
-  return passs;
+  return pass;
 }
-//write for loops, to go through the selected groups of characters, and the amount of loops is equal to the specified length
 
 function writePassword() {
   console.log("writePassword is running");
