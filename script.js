@@ -7,6 +7,30 @@ var allCaps = ["ABCDEFGHIJKLMNOPRXTUVWXYZ"];
 var allNumbers = ["0123456789"];
 var allSpecial = ["!#$%&&*+-/_:;=<>?@][(){}~"];
 
+function lettersLoop() {
+  for (var i = 0; i < allLetters.length; i++) {
+    console.log("all capitals " + allLetters[i]);
+  }
+}
+
+function capsLoop() {
+  for (var i = 0; i < allCaps.length; i++) {
+    console.log("all capitals " + allCaps[i]);
+  }
+}
+
+function numbersLoop() {
+  for (var i = 0; i < allNumbers.length; i++) {
+    console.log("all capitals " + allNumbers[i]);
+  }
+}
+
+function specialLoop() {
+  for (var i = 0; i < allSpecial.length; i++) {
+    console.log("all capitals " + allSpecial[i]);
+  }
+}
+
 function affirmData() {
   console.log("generatePassword function is running");
   var capital = confirm("Would you like to use Capital letters?");
@@ -26,6 +50,7 @@ function generatePassword(capital, numbers, special, length) {
   console.log("Inside generatePassword " + capital + " " + numbers + " " + special + " " + length)
   if (capital == true && numbers == true && special == true) {
     console.log("all true")
+    capsLoop();
   }
   else if (capital == false && numbers == true && special == true) {
     console.log("all true but capital")
