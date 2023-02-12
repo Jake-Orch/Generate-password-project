@@ -32,7 +32,7 @@ function specialLoop() {
 }
 
 function affirmData() {
-  console.log("generatePassword function is running");
+  console.log("affirmData function is running");
   var capital = confirm("Would you like to use Capital letters?");
   var numbers = confirm("Would you like to use Numbers?");
   var special = confirm("Would you like to use Special characters?");
@@ -42,49 +42,59 @@ function affirmData() {
   special;
   length;
   console.log("Inside affirmData " + capital + " " + numbers + " " + special + " " + length)
-  generatePassword(capital, numbers, special, length);
-  return [capital, numbers, special, length];
+  return {capital, numbers, special, length};
 }
 
-function generatePassword(capital, numbers, special, length) {
+function generatePassword({capital, numbers, special , length}) {
+  console.log("generatePassword is running")
   console.log("Inside generatePassword " + capital + " " + numbers + " " + special + " " + length)
   if (capital == true && numbers == true && special == true) {
     console.log("all true")
     capsLoop();
+    numbersLoop();
+    specialLoop();
   }
   else if (capital == false && numbers == true && special == true) {
     console.log("all true but capital")
+    numbersLoop();
+    specialLoop();
   }
   else if (capital == true && numbers == false && special == true) {
     console.log("all true but numbers")
+    capsLoop();
+    specialLoop();
   }
   else if (capital == true && numbers == true && special == false) {
     console.log("all true but special")
+    capsLoop();
+    numbersLoop();
   }
   else if (capital == true && numbers == false && special == false) {
     console.log("all false but capital")
+    capsLoop();
   }
   else if (capital == false && numbers == true && special == false) {
     console.log("all false but numbers")
+    numbersLoop();
   }
   else if (capital == false && numbers == false && special == true) {
     console.log("all false but special")
+    specialLoop();
   }
   else {
     console.log("all false")
   }
-
+return capital, numbers, special, length;
 }
 //write for loops, to go through the selected groups of characters, and the amount of loops is equal to the specified length
 
 function writePassword() {
   console.log("writePassword is running");
-  affirmData();
-  var password = generatePassword();
+  var affirmeddata = affirmData();
+  var password = generatePassword(affirmeddata);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log(numbers)
   console.log("Inside writePassword " + capital + " " + numbers + " " + special + " " + length)
 }
 
