@@ -24,22 +24,31 @@ function affirmData() {
 
 function generatePassword(capital, numbers, special, length) {
   console.log("Inside generatePassword " + capital + " " + numbers + " " + special + " " + length)
-  if (capital == true && numbers == true && special == true)
-  console.log("all true")
-  else if (capital == false && numbers == true && special == true)
-  console.log("all true but capital")
-  else if (capital == true && numbers == false && special == true)
-  console.log("all true but numbers")
-  else if (capital == true && numbers == true && special == false)
-  console.log("all true but special")
-  else if (capital == true && numbers == false && special == false)
-  console.log("all false but capital")
-  else if (capital == false && numbers == true && special == false)
-  console.log("all false but numbers")
-  else if (capital == false && numbers == false && special == true)
-  console.log("all false but special")
-  else
-  console.log("all false")
+  if (capital == true && numbers == true && special == true) {
+    console.log("all true")
+  }
+  else if (capital == false && numbers == true && special == true) {
+    console.log("all true but capital")
+  }
+  else if (capital == true && numbers == false && special == true) {
+    console.log("all true but numbers")
+  }
+  else if (capital == true && numbers == true && special == false) {
+    console.log("all true but special")
+  }
+  else if (capital == true && numbers == false && special == false) {
+    console.log("all false but capital")
+  }
+  else if (capital == false && numbers == true && special == false) {
+    console.log("all false but numbers")
+  }
+  else if (capital == false && numbers == false && special == true) {
+    console.log("all false but special")
+  }
+  else {
+    console.log("all false")
+  }
+
 }
 //write for loops, to go through the selected groups of characters, and the amount of loops is equal to the specified length
 
@@ -57,4 +66,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-console.log("Outside function " + capital + " " + numbers + " " + special + " " + length)
