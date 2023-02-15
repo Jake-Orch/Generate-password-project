@@ -21,10 +21,10 @@ function affirmData() {
   return { capital, numbers, special, lengths };
 }
 
-function getRandomletter (lengthDivRounded) {
-  console.log("in get random letter" + lengthDivRounded);
-  var randomIndex = Math.floor(Math.random()*lengthDivRounded);
+function getRandomletter () {
+  var randomIndex = Math.floor(Math.random()*allLetters.length);
   var value = allLetters[randomIndex];
+  console.log("value " + value)
   return value;
 }
 function getRandomSpecial () {
@@ -42,9 +42,12 @@ function generatePassword({ capital, numbers, special, lengths }) {
     console.log("lengthDivRounded " + lengthDivRounded);
     var lengthModulus = lengths % 4
     console.log("lengthModulus " + lengthModulus);
-    var letters = getRandomletter(allLetters);
+    var letters = [];
+    for (i = 0; i < lengthDivRounded; i++) {
+    letters.push(getRandomletter());
+    }
     console.log(letters);
-    return lengthDivRounded ;
+    return ;
   }
   else if (capital == false && numbers == true && special == true) {
 
@@ -69,7 +72,7 @@ function generatePassword({ capital, numbers, special, lengths }) {
   else {
     
   }
-  return lengthDivRounded;
+  return;
 }
 
 function writePassword() {
