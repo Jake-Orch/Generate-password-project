@@ -2,14 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-var allLetters = ["abcdefghijklmnopqrstuvwxyz"];
-var allLettersCaps = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ"]
-var allLettersNumbers = ["abcdefghijklmnopqrstuvwxyz0123456789"]
-var allLettersSpecial = ["abcdefghijklmnopqrstuvwxyz!#$%&&*+-/_:;=<>?@][(){}~"]
-var allLettersCapsNumbers = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ0123456789"]
-var allLettersCapsSpecial = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ!#$%&&*+-/_:;=<>?@][(){}~"]
-var allLettersNumbersSpecial = ["abcdefghijklmnopqrstuvwxyz0123456789!#$%&&*+-/_:;=<>?@][(){}~"]
-var allLettersCapsNumbersSpecial = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRXTUVWXYZ0123456789!#$%&&*+-/_:;=<>?@][(){}~"]
+var allLetters = "abcdefghijklmnopqrstuvwxyz";
+var allCaps = "ABCDEFGHIJKLMNOPRXTUVWXYZ";
+var allNumbers = "0123456789";
+var allSpecial = "!#$%&&*+-/_:;=<>?@][(){}~";
 
 function affirmData() {
   console.log("affirmData function is running");
@@ -25,46 +21,55 @@ function affirmData() {
   return { capital, numbers, special, lengths };
 }
 
+function getRandomletter (lengthDivRounded) {
+  console.log("in get random letter" + lengthDivRounded);
+  var randomIndex = Math.floor(Math.random()*lengthDivRounded);
+  var value = allLetters[randomIndex];
+  return value;
+}
+function getRandomSpecial () {
+
+}
+
 function generatePassword({ capital, numbers, special, lengths }) {
   console.log("generatePassword is running");
   console.log("Inside generatePassword " + capital + " " + numbers + " " + special + " " + lengths)
   if (capital == true && numbers == true && special == true) {
-    var pass = allLettersCapsNumbersSpecial[Math.floor(Math.random() * lengths.length)];
-    console.log("all true" + pass);
-//unidentified on some specific numbers e.g. 12, 16
-//shows all
+    var lengthDiv = lengths / 4;
+    console.log("length " + lengths);
+    console.log("lengthDiv " +lengthDiv);
+    var lengthDivRounded = Math.floor(lengthDiv);
+    console.log("lengthDivRounded " + lengthDivRounded);
+    var lengthModulus = lengths % 4
+    console.log("lengthModulus " + lengthModulus);
+    var letters = getRandomletter(allLetters);
+    console.log(letters);
+    return lengthDivRounded ;
   }
   else if (capital == false && numbers == true && special == true) {
-    var pass = allLettersNumbersSpecial[Math.floor(Math.random() * lengths.length)];
-    console.log("all true but capital" + pass);
+
 
   }
   else if (capital == true && numbers == false && special == true) {
-    var pass = allLettersCapsSpecial[Math.floor(Math.random() * lengths.length)];
-    console.log("all true but numbers" + pass);
+
 
   }
   else if (capital == true && numbers == true && special == false) {
-    var pass = allLettersCapsNumbers[Math.floor(Math.random() * lengths.length)];
-    console.log("all true but special" + pass);
+
   }
   else if (capital == true && numbers == false && special == false) {
-    var pass = allLettersCaps[Math.floor(Math.random() * lengths.length)];
-    console.log("all false but capital" + pass);
+
   }
   else if (capital == false && numbers == true && special == false) {
-    var pass = allLettersNumbers[Math.floor(Math.random() * lengths.length)];
-    console.log("all false but numbers" + pass);
+
   }
   else if (capital == false && numbers == false && special == true) {
-    var pass = allLettersSpecial[Math.floor(Math.random() * lengths.length)];
-    console.log("all false but special" + pass);
+
   }
   else {
-      var pass = allLetters[Math.floor(Math.random() * lengths.length)];
-    console.log("all false" + pass);
+    
   }
-  return pass;
+  return lengthDivRounded;
 }
 
 function writePassword() {
