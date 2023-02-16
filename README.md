@@ -5,5 +5,5 @@ This project was to test and push my understanding of JacaScript, specifically u
 [image of webpage](assets/password-generator.PNG)  
 
 ## Links
-Deployed Webpage: https://jake-orch.github.io/Generate-password-project/
+Deployed Webpage: https://jake-orch.github.io/Generate-password-project/  
 Github Repo: https://github.com/Jake-Orch/Generate-password-project
