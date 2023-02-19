@@ -28,27 +28,9 @@ do {
   return { capital, numbers, special, lengths };
 }
 
-function getRandomletter() {
-  var randomIndex = Math.floor(Math.random() * allLetters.length);
-  var value = allLetters[randomIndex];
-  return value;
-}
-
-function getRandomCaps() {
-  var randomIndex = Math.floor(Math.random() * allCaps.length);
-  var value = allCaps[randomIndex];
-  return value;
-}
-
-function getRandomNumbers() {
-  var randomIndex = Math.floor(Math.random() * allNumbers.length);
-  var value = allNumbers[randomIndex];
-  return value;
-}
-
-function getRandomSpecial() {
-  var randomIndex = Math.floor(Math.random() * allSpecial.length);
-  var value = allSpecial[randomIndex];
+function getRandom(a) {
+  var randomIndex = Math.floor(Math.random() * a.length);
+  var value = a[randomIndex];
   return value;
 }
 
@@ -78,22 +60,22 @@ function generatePassword({ capital, numbers, special, lengths }) {
   var passPhrase = [];
   if (capital == true && numbers == true && special == true) {
     for (i = 0; i < lengthLetter; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded; i++) {
-      newCaps.push(getRandomCaps());
+      newCaps.push(getRandom(allCaps));
     }
     console.log(newCaps);
 
     for (i = 0; i < lengthDivRounded; i++) {
-      newNumbers.push(getRandomNumbers());
+      newNumbers.push(getRandom(allNumbers));
     }
     console.log(newNumbers);
 
     for (i = 0; i < lengthDivRounded; i++) {
-      newSpecial.push(getRandomSpecial());
+      newSpecial.push(getRandom(allSpecial));
     }
     console.log(newSpecial);
     passPhrase = newLetters.concat(newCaps, newNumbers, newSpecial);
@@ -103,17 +85,17 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == false && numbers == true && special == true) {
     for (i = 0; i < lengthLetter3; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newNumbers.push(getRandomNumbers());
+      newNumbers.push(getRandom(allNumbers));
     }
     console.log(newNumbers);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newSpecial.push(getRandomSpecial());
+      newSpecial.push(getRandom(allSpecial));
     }
     console.log(newSpecial);
     passPhrase = newLetters.concat(newNumbers, newSpecial);
@@ -122,17 +104,17 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == true && numbers == false && special == true) {
     for (i = 0; i < lengthLetter3; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newCaps.push(getRandomCaps());
+      newCaps.push(getRandom(allCaps));
     }
     console.log(newCaps);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newSpecial.push(getRandomSpecial());
+      newSpecial.push(getRandom(allSpecial));
     }
     console.log(newSpecial);
 
@@ -142,17 +124,17 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == true && numbers == true && special == false) {
     for (i = 0; i < lengthLetter3; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newCaps.push(getRandomCaps());
+      newCaps.push(getRandom(allCaps));
     }
     console.log(newCaps);
 
     for (i = 0; i < lengthDivRounded3; i++) {
-      newNumbers.push(getRandomNumbers());
+      newNumbers.push(getRandom(allNumbers));
     }
     console.log(newNumbers);
 
@@ -162,12 +144,12 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == true && numbers == false && special == false) {
     for (i = 0; i < lengthLetter2; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded2; i++) {
-      newCaps.push(getRandomCaps());
+      newCaps.push(getRandom(allCaps));
     }
     console.log(newCaps);
 
@@ -177,12 +159,12 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == false && numbers == true && special == false) {
     for (i = 0; i < lengthLetter2; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded2; i++) {
-      newNumbers.push(getRandomNumbers());
+      newNumbers.push(getRandom(allNumbers));
     }
     console.log(newNumbers);
 
@@ -192,12 +174,12 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else if (capital == false && numbers == false && special == true) {
     for (i = 0; i < lengthLetter2; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandom(allLetters))
     }
     console.log(newLetters);
 
     for (i = 0; i < lengthDivRounded2; i++) {
-      newSpecial.push(getRandomSpecial());
+      newSpecial.push(getRandom(allSpecial));
     }
     console.log(newSpecial);
 
@@ -207,12 +189,14 @@ function generatePassword({ capital, numbers, special, lengths }) {
   }
   else {
     for (i = 0; i < lengths; i++) {
-      newLetters.push(getRandomletter())
+      newLetters.push(getRandomletter(allLetters))
     }
     console.log(newLetters);
+    shuffle(newLetters);
     return newLetters.join('');
   }
 }
+
 
 function writePassword() {
   console.log("writePassword is running");
